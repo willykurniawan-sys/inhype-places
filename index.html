@@ -1,25 +1,257 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INHYPE Places</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f3efe6">
+<title>INHYPE Founder Circle</title>
+<meta name="description" content="INHYPE Group Founder Circle — participating F&B outlets.">
+<style>
+:root {
+  --paper:#f3efe6;
+  --ink:#161512;
+  --muted:#746f64;
+  --gold:#9a8051;
+  --line:rgba(22,21,18,.18);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:Arial, Helvetica, sans-serif; -webkit-font-smoothing:antialiased;
+}
+.wrap { width:min(1120px, calc(100% - 40px)); margin:auto; }
+.topbar {
+  padding:28px 0 18px; border-bottom:1px solid var(--line);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand {
+  font-family:Georgia, "Times New Roman", serif; letter-spacing:.08em;
+  font-size:25px; white-space:nowrap;
+}
+.brand small {
+  display:block; font-family:Arial, sans-serif; font-size:8px;
+  letter-spacing:.32em; margin-top:2px; text-align:center;
+}
+.member-tag {
+  font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
+}
+.hero {
+  min-height:72vh; padding:96px 0 82px; display:grid;
+  grid-template-columns:1.15fr .85fr; gap:72px; align-items:end;
+}
+.kicker {
+  color:var(--gold); text-transform:uppercase; letter-spacing:.25em;
+  font-size:11px; margin-bottom:22px;
+}
+h1 {
+  margin:0; max-width:760px; font-family:Georgia, "Times New Roman", serif;
+  font-weight:400; font-size:clamp(54px,8vw,112px); line-height:.88; letter-spacing:-.045em;
+}
+.hero-note {
+  border-top:1px solid var(--ink); padding-top:25px; max-width:430px;
+}
+.hero-note .lead {
+  font-family:Georgia, "Times New Roman", serif; font-size:27px;
+  line-height:1.2; margin:0 0 22px;
+}
+.hero-note p { color:#4e4a42; font-size:14px; line-height:1.72; margin:0 0 14px; }
+.hero-note strong { color:var(--ink); }
+.journey { font-family:Georgia,serif; font-style:italic; color:var(--ink)!important; margin-top:24px!important; }
+
+.places { padding:90px 0 110px; border-top:1px solid var(--line); }
+.section-head {
+  display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:45px;
+}
+.section-head h2 {
+  font-family:Georgia,serif; font-size:clamp(42px,6vw,74px);
+  font-weight:400; letter-spacing:-.04em; margin:0;
+}
+.section-head p { margin:0 0 9px; color:var(--muted); font-size:13px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--ink); }
+.place-card {
+  min-height:210px; padding:30px 0; border-bottom:1px solid var(--line);
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.place-card:nth-child(odd) { padding-right:34px; border-right:1px solid var(--line); }
+.place-card:nth-child(even) { padding-left:34px; }
+.place-card h3 {
+  font-family:Georgia,serif; font-weight:400; font-size:30px;
+  margin:0 0 8px; letter-spacing:-.02em;
+}
+.place-card p { margin:0; color:var(--muted); font-size:13px; }
+.actions { display:flex; gap:24px; margin-top:32px; }
+.actions a {
+  color:var(--ink); text-decoration:none; text-transform:uppercase;
+  font-size:10px; letter-spacing:.18em; padding-bottom:5px; border-bottom:1px solid var(--ink);
+}
+.actions a:hover { color:var(--gold); border-color:var(--gold); }
+.actions span { margin-left:5px; }
+
+footer {
+  background:var(--ink); color:var(--paper); padding:70px 0 32px;
+}
+.footer-main {
+  display:flex; justify-content:space-between; align-items:end; gap:30px;
+  padding-bottom:60px;
+}
+.footer-main .mark {
+  font-family:Georgia,serif; font-size:clamp(44px,7vw,84px); letter-spacing:.04em;
+}
+.footer-main .circle {
+  color:#bba678; font-size:11px; text-transform:uppercase; letter-spacing:.25em; padding-bottom:10px;
+}
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.2); padding-top:22px;
+  color:#9c988f; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  display:flex; justify-content:space-between; gap:20px;
+}
+
+@media(max-width:760px) {
+  .wrap { width:min(100% - 30px, 620px); }
+  .topbar { padding-top:22px; }
+  .brand { font-size:21px; }
+  .hero { min-height:auto; padding:72px 0 70px; grid-template-columns:1fr; gap:65px; }
+  h1 { font-size:clamp(57px,19vw,88px); }
+  .hero-note { max-width:none; }
+  .places { padding:68px 0 80px; }
+  .section-head { display:block; }
+  .section-head p { margin-top:12px; }
+  .grid { grid-template-columns:1fr; }
+  .place-card, .place-card:nth-child(odd), .place-card:nth-child(even) {
+    min-height:185px; padding:26px 0; border-right:0;
+  }
+  .place-card h3 { font-size:27px; }
+  .footer-main { display:block; }
+  .footer-main .circle { margin-top:15px; }
+  .footer-bottom { display:block; line-height:1.8; }
+}
+</style>
 </head>
+<body>
+<header class="wrap topbar">
+  <div class="brand">IN·H·G<small>INHYPE GROUP</small></div>
+  <div class="member-tag">Founder Circle</div>
+</header>
 
-<body style="
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 80px 20px;
-  background: #f5f3ee;
-">
+<main>
+<section class="wrap hero">
+  <div>
+    <div class="kicker">INHYPE Group · Founder Circle</div>
+    <h1>Welcome<br>to the<br>Circle.</h1>
+  </div>
+  <div class="hero-note">
+    <p class="lead">You’re part of something we built together.</p>
+    <p>The Founder Circle is reserved for the people who have made a meaningful impact on INHYPE Group and helped shape who we are today.</p>
+    <p>This card is our way of saying <strong>thank you</strong> — and welcoming you to enjoy special privileges across our participating F&amp;B outlets.</p>
+    <p><strong>Please present your Founder Circle card to your server when you visit</strong>, so our team can recognize you and provide you with the best service and privileges available to you.</p>
+    <p class="journey">Thank you for being part of our journey.</p>
+  </div>
+</section>
 
-  <h1>INHYPE PLACES</h1>
+<section class="places">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Participating F&amp;B Outlets</div>
+        <h2>Your Places</h2>
+      </div>
+      <p>Instagram · Location · Directions</p>
+    </div>
+    <div class="grid">
+      
+<article class="place-card">
+  <div class="place-copy">
+    <h3>TOMA BRASSERIE</h3>
+    <p>Chillax Sudirman</p>
+  </div>
+  <div class="actions">
+    <a href="https://www.instagram.com/toma.brasserie/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="https://maps.app.goo.gl/JvBiMD6owZKZAGwf8" target="_blank" rel="noopener">Directions <span>↗</span></a>
+  </div>
+</article>
 
-  <p>Coffee · Food · Hospitality</p>
+<article class="place-card">
+  <div class="place-copy">
+    <h3>EAST QUARTER</h3>
+    <p>Grand Indonesia</p>
+  </div>
+  <div class="actions">
+    <a href="https://www.instagram.com/east.quarter/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="https://maps.app.goo.gl/GgUTgHDnUiScP9RdA" target="_blank" rel="noopener">Directions <span>↗</span></a>
+  </div>
+</article>
 
-  <p style="margin-top:50px;">
-    Coming Soon
-  </p>
+<article class="place-card">
+  <div class="place-copy">
+    <h3>TAMU</h3>
+    <p>Adityawarman, South Jakarta</p>
+  </div>
+  <div class="actions">
+    <a href="https://www.instagram.com/tamu.jkrt/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=TAMU+Jl+Aditiawarman+I+No+8+Melawai+Jakarta" target="_blank" rel="noopener">Directions <span>↗</span></a>
+  </div>
+</article>
 
+<article class="place-card">
+  <div class="place-copy">
+    <h3>OSMO</h3>
+    <p>Adityawarman, South Jakarta</p>
+  </div>
+  <div class="actions">
+    <a href="https://www.instagram.com/osmo.jkrt/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=OSMO+Bar+Jl+Aditiawarman+I+No+8+Melawai+Jakarta" target="_blank" rel="noopener">Directions <span>↗</span></a>
+  </div>
+</article>
+
+<article class="place-card">
+  <div class="place-copy">
+    <h3>ROKI BRASSERIE</h3>
+    <p>Summarecon Mall Serpong</p>
+  </div>
+  <div class="actions">
+    <a href="https://www.instagram.com/roki.brasserie/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=ROKI+Brasserie+Summarecon+Mall+Serpong+2" target="_blank" rel="noopener">Directions <span>↗</span></a>
+  </div>
+</article>
+
+<article class="place-card">
+  <div class="place-copy">
+    <h3>OMAH LOKA</h3>
+    <p>Chillax Sudirman</p>
+  </div>
+  <div class="actions">
+    <a href="https://www.instagram.com/omahloka.id/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Omah+Loka+Chillax+Sudirman+Jakarta" target="_blank" rel="noopener">Directions <span>↗</span></a>
+  </div>
+</article>
+
+<article class="place-card">
+  <div class="place-copy">
+    <h3>HYGGE CAFE BSD</h3>
+    <p>BSD City</p>
+  </div>
+  <div class="actions">
+    <a href="https://www.instagram.com/hyggecafe.bsd/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Hygge+Cafe+BSD+Jl+BSD+Grand+Boulevard" target="_blank" rel="noopener">Directions <span>↗</span></a>
+  </div>
+</article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="mark">IN·H·G</div>
+      <div class="circle">Founder Circle</div>
+    </div>
+    <div class="footer-bottom">
+      <span>INHYPE GROUP</span>
+      <span>Food · Lifestyle · Hospitality</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

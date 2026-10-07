@@ -129,6 +129,37 @@ footer {
   .footer-bottom { display:block; line-height:1.8; }
 }
 </style>
+
+<style>
+.portfolio-footer{background:#121210;color:#f3efe6;padding:72px 0 28px}
+.footer-inner{width:min(1180px,calc(100% - 64px));margin:0 auto}
+.footer-brand{text-align:center;margin-bottom:62px}
+.footer-mark{font-family:Georgia,"Times New Roman",serif;font-size:54px;line-height:1;letter-spacing:.04em}
+.footer-group{margin-top:13px;color:#b99a5d;font:11px/1.2 Arial,sans-serif;letter-spacing:.42em}
+.pillars{display:grid;grid-template-columns:1fr 1.45fr 1.25fr 1.25fr}
+.pillar{padding:0 34px;border-left:1px solid rgba(243,239,230,.22)}
+.pillar:first-child{border-left:0;padding-left:0}.pillar:last-child{padding-right:0}
+.pillar h3{margin:0;font:24px/1.15 Georgia,"Times New Roman",serif;letter-spacing:.035em;white-space:nowrap}
+.gold-line{display:block;width:30px;height:2px;background:#b99a5d;margin:22px 0 27px}
+.pillar p{margin:0 0 12px;color:#ddd9d0;font:15px/1.35 Arial,sans-serif}
+.fnb-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.footer-signoff{margin-top:46px;padding-top:25px;border-top:1px solid rgba(243,239,230,.25);text-align:center;color:#b99a5d;font:10px/1.4 Arial,sans-serif;letter-spacing:.34em}
+.footer-signoff span{padding:0 15px}
+@media(max-width:900px){
+ .portfolio-footer{padding-top:58px}.footer-inner{width:min(100% - 40px,1180px)}
+ .footer-brand{margin-bottom:45px}.footer-mark{font-size:46px}.pillars{grid-template-columns:1fr 1fr}
+ .pillar{padding:30px 24px;border-left:0;border-top:1px solid rgba(243,239,230,.18)}
+ .pillar:nth-child(odd){padding-left:0}.pillar:nth-child(even){border-left:1px solid rgba(243,239,230,.18)}
+}
+@media(max-width:600px){
+ .portfolio-footer{padding:48px 0 24px}.footer-inner{width:calc(100% - 36px)}
+ .footer-brand{text-align:left;margin-bottom:36px}.footer-mark{font-size:42px}.footer-group{font-size:9px}
+ .pillars{display:block}.pillar,.pillar:first-child,.pillar:last-child{padding:27px 0;border-left:0;border-top:1px solid rgba(243,239,230,.18)}
+ .pillar h3{font-size:22px}.gold-line{margin:17px 0 21px}.pillar p{font-size:14px;margin-bottom:10px}
+ .fnb-cols{gap:20px}.footer-signoff{text-align:left;font-size:8px;letter-spacing:.24em;margin-top:20px}.footer-signoff span{padding:0 8px}
+}
+</style>
+
 </head>
 <body>
 <main>
@@ -232,17 +263,36 @@ footer {
 </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-main">
-      <div class="mark">IN·H·G</div>
-      <div class="circle">Founder Circle</div>
+<footer class="portfolio-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-mark">IN·H·G</div>
+      <div class="footer-group">INHYPE GROUP</div>
     </div>
-    <div class="footer-bottom">
-      <span>INHYPE GROUP</span>
-      <span>Food · Lifestyle · Hospitality</span>
+    <div class="pillars">
+      <section class="pillar">
+        <h3>PLACEMAKING</h3><span class="gold-line"></span>
+        <p>Chillax Sudirman</p><p>Inhype Space</p><p>Langit Padi Cabin</p><p>Hygge Farm</p>
+      </section>
+      <section class="pillar">
+        <h3>FOOD &amp; BEVERAGE</h3><span class="gold-line"></span>
+        <div class="fnb-cols">
+          <div><p>Hygge Cafe</p><p>Mika Cafe</p><p>Omah Loka</p><p>Seven+1</p><p>Picco</p></div>
+          <div><p>Toma</p><p>East Quarter</p><p>Tamu</p><p>Osmo</p><p>Roki</p></div>
+        </div>
+      </section>
+      <section class="pillar">
+        <h3>EVENT &amp; MEDIA</h3><span class="gold-line"></span>
+        <p>Jakarta Coffee Week</p><p>Hype.id</p><p>Beyond the Trend</p><p>Inhype Picture</p>
+      </section>
+      <section class="pillar">
+        <h3>SPECIAL PROJECT</h3><span class="gold-line"></span>
+        <p>Hygge Hotel Seminyak</p><p>Casa Mysa Kuta</p><p>Epicon BSD</p>
+      </section>
     </div>
+    <div class="footer-signoff">INHYPE GROUP <span>|</span> LIFESTYLE ARCHITECT</div>
   </div>
 </footer>
+
 </body>
 </html>
